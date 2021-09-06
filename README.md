@@ -2,3 +2,5 @@
 
 # Installation
 1. Copy the Exile_Client_EAWP_thread.sqf to your missionfile and add the code from the initplayerlocal.sqf
+
+Short Preview: https://www.youtube.com/watch?v=IU1OEZCNroY
