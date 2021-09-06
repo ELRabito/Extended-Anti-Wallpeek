@@ -1,9 +1,8 @@
 /**
 * Exile_Client_AntiWG_thread
 *
-* Copyright © El Rabito - All Rights Reserved
-* Unauthorized usage of this file is strictly prohibited.
-* v0.21
+* by El Rabito
+*
 */
 
 private ["_lineIntersectsObjs","_EH","_type"];
