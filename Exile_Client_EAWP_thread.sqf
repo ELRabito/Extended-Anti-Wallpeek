@@ -1,5 +1,5 @@
 /**
-* Exile_Client_AntiWG_thread
+* Exile_Client_EAWP_thread
 * V0.21
 * by El Rabito
 *
