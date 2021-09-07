@@ -1,6 +1,6 @@
 /**
 * Exile_Client_AntiWG_thread
-* V0.20
+* V0.21
 * by El Rabito
 *
 */
