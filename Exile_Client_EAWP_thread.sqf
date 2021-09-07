@@ -7,6 +7,7 @@
 
 private ["_lineIntersectsObjs","_EH","_type"];
 if!(isNull objectParent player)exitWith{};
+if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{};
 _lineIntersectsObjs = flatten [lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.4]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.4]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.1,0,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.4,0,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,-0.15,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.15,0]]];
 if(_lineIntersectsObjs isEqualTo []) then
 {
