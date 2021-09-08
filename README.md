@@ -1,7 +1,7 @@
 # Extended-Anti-Wallpeek
 
 Extended Anti Wallpeek script that also triggers outside of territories.
-If you try to glitch through objects with freelook it will fade the screen to black and forces first person for 60 seconds.
+If you try to glitch through objects with the camera it will fade the screen to black and forces first person for 60 seconds.
 It will cover most of the buildings but sadly not objects like map fences since they have no "object type", but better than nothing.
 
 This is the first release version, i will further improve it.
