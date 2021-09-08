@@ -1,14 +1,15 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.21
+* V0.22
 * by El Rabito
 *
 */
 
-private ["_lineIntersectsObjs","_EH","_type"];
+private ["_lineIntersectsObjs","_IntersectCount","_EH","_type"];
 if!(isNull objectParent player)exitWith{};
 if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{};
-_lineIntersectsObjs = flatten [lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.4]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.4]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.1,0,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.4,0,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,-0.15,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.15,0]]];
+_lineIntersectsObjs = flatten [lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.1]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.1]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.1,0,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.1,0,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,-0.1,0]],lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.1,0]]];
+_IntersectCount = count _lineIntersectsObjs;
 if(_lineIntersectsObjs isEqualTo []) then
 {
 	if (diag_tickTime - ExileClientLastForcedFirstPerson >= 60) then
@@ -24,6 +25,7 @@ if(_lineIntersectsObjs isEqualTo []) then
 }	
 else
 {
+	if(_IntersectCount < 3) exitWith {};
 	{
 		if(_x getVariable ['ExileBreaching',false])exitWith{};
 		_type = typeOf _x;
@@ -33,8 +35,6 @@ else
 		) 
 		exitWith 
 		{
-			if (freeLook) then 
-			{
 				if (cameraView isEqualTo "EXTERNAL") then {player switchCamera "INTERNAL";["WarningTitleAndText", ["ANTI-GLITCH","-<br/>You are forced to first person for 60 seconds!"]] call ExileClient_gui_toaster_addTemplateToast};
 				if (findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1] == -1) then 
 				{
@@ -43,7 +43,6 @@ else
 					ExileClientLastForcedFirstPerson = diag_ticktime;
 				};
 				if!(ExileClientGlitchBlackOut) then {ExileClientGlitchBlackOut= true;TitleText ['ANTI-GLITCH BLACKOUT - Dont try to look through objects!','BLACK FADED'];};
-			};
 		};
 	} forEach _lineIntersectsObjs;
 };
