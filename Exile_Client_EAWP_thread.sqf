@@ -1,14 +1,15 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.30
+* V0.31
 * by El Rabito
 *
 */
 
 private ["_lineIntersectsObjs","_IntersectCount","_type","_forceFirstPerson","_forceFPDuration"];
-if !(isNull objectParent player) exitWith{};
-if !(isnull ExileClientCameraObject) exitWith{};
-if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{};
+if !(isNull objectParent player) exitWith{}; // Don't run inside a vehicle
+if !(isnull ExileClientCameraObject) exitWith{}; // Don't run while using CCTV
+if !(isNull (uiNamespace getVariable ['RscSMPaint', displayNull])) exitwith {}; // Don't run while using SM_Paint
+if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{}; // Don't run while using a ladder
 // CONFIG
 _forceFirstPerson = false; 	// Force first person after glitching
 _forceFPDuration = 60;		// Duration of the forced first person.
