@@ -1,6 +1,6 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.24
+* V0.30
 * by El Rabito
 *
 */
