@@ -5,15 +5,17 @@
 *
 */
 
-private ["_lineIntersectsObjs","_IntersectCount","_type"];
+private ["_lineIntersectsObjs","_IntersectCount","_type","_forceFirstPerson","_forceFPDuration"];
 if !(isNull objectParent player) exitWith{};
 if !(isnull ExileClientCameraObject) exitWith{};
 if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{};
-_forceFP = false;
-
+// CONFIG
+_forceFirstPerson = false; 	// Force first person after glitching
+_forceFPDuration = 60;		// Duration of the forced first person.
+//
 _lineIntersectsObjs = flatten [
 
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.05,0]],	// BACKWARDS Y/X/Z 
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.05,0]],		// BACKWARDS Y/X/Z 
 	                                                                                    
 	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,0,0]],     // LEFT
 	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.09,0,0]],     // LEFT 2
@@ -30,13 +32,16 @@ _IntersectCount = count _lineIntersectsObjs;
 if(_lineIntersectsObjs isEqualTo []) then
 {
 	
-	if (diag_tickTime - ExileClientLastForcedFirstPerson >= 60 && _forceFP) then
+	if (_forceFirstPerson) then
 	{
-		if !(findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1] == -1) then 
+		if (diag_tickTime - ExileClientLastForcedFirstPerson >= _forceFPDuration) then
 		{
-			_EH = findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1];
-			findDisplay 46 setVariable ["ForceFirstPersonModuleForced", -1];
-			(findDisplay 46) displayRemoveEventHandler ["KeyDown",_EH];
+			if !(findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1] == -1) then 
+			{
+				_EH = findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1];
+				findDisplay 46 setVariable ["ForceFirstPersonModuleForced", -1];
+				(findDisplay 46) displayRemoveEventHandler ["KeyDown",_EH];
+			};
 		};
 	};
 	if(ExileClientGlitchBlackOut)then{ ExileClientGlitchBlackOut = false;TitleText ['','PLAIN DOWN']; };
