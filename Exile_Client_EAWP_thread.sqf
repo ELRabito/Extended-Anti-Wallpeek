@@ -63,7 +63,7 @@ else
 		{
 			if!(ExileClientGlitchBlackOut) then {ExileClientGlitchBlackOut= true;TitleText ['ANTI-GLITCH BLACKOUT - Dont try to look through objects!','BLACK FADED'];};
 			if(cameraView isEqualTo "EXTERNAL") then {player switchCamera "INTERNAL"; if!(ExileClientGlitchBlackOut) then {ExileClientGlitchBlackOut= true;titleText ['ANTI-GLITCH BLACKOUT - Dont try to look through objects!','BLACK FADED'];};};
-			if (findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1] == -1 && _forceFP) then 
+			if (findDisplay 46 getVariable ["ForceFirstPersonModuleForced", -1] == -1 && _forceFirstPerson) then 
 			{
 				_EH = findDisplay 46 displayAddEventHandler ["KeyDown", {if (inputAction "personView" > 0) then {["WarningTitleAndText", ["ANTI-GLITCH","-<br/>You are forced to first person for 60 seconds!"]] call ExileClient_gui_toaster_addTemplateToast; true;};}];
 				findDisplay 46 setVariable ["ForceFirstPersonModuleForced", _EH];
