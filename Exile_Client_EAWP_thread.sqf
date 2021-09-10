@@ -11,10 +11,11 @@ if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploo
 
 // Don't run while using traders,CCTV,painting etc.
 if !(isnull ExileClientCameraObject) exitWith{};
+if (ExilePlayerInSafezone) exitWith{};
 if !(isNull (uiNamespace getVariable ['RscSMPaint', displayNull])) exitwith {};
-if !(isNull (uiNamespace getVariable ['RscExileTraderDialog', displayNull])) exitwith {}; 
-if !(isNull (uiNamespace getVariable ['RscExileVehicleTraderDialog', displayNull])) exitwith {}; 
-if !(isNull (uiNamespace getVariable ['RscExileVehicleCustomsDialog', displayNull])) exitwith {};
+//if !(isNull (uiNamespace getVariable ['RscExileTraderDialog', displayNull])) exitwith {}; 
+//if !(isNull (uiNamespace getVariable ['RscExileVehicleTraderDialog', displayNull])) exitwith {}; 
+//if !(isNull (uiNamespace getVariable ['RscExileVehicleCustomsDialog', displayNull])) exitwith {};
 
 // CONFIG
 _forceFirstPerson = false; 	// Force first person after glitching
