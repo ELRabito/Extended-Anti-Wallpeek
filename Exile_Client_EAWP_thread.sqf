@@ -1,6 +1,6 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.35
+* V0.40
 * by El Rabito
 *
 */
@@ -24,18 +24,11 @@ _forceFPDuration = 60;		// Duration of the forced first person.
 //
 _lineIntersectsObjs = flatten [
 
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.05,0]],		// BACKWARDS Y/X/Z 
-	                                                                                    
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,0,0]],     // LEFT
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.09,0,0]],     // LEFT 2
-	                                                                                    
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.08,0,0]],      // RIGHT
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.09,0,0]],      // RIGHT 2
-	                                                                                    
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.15]],     // DOWNWARDS
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.20]],     // DOWNWARDS 2
-	                                                                                    
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.1]]       // UPWARDS
+	//X/Z/Y // https://community.bistudio.com/wikidata/images/e/e6/PositionCameraToWorld.jpg                                                                    
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.04]],		
+    lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.04]],		                                                                        
+    lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,0,0]],	
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.08,0,0]]
 ];
 _IntersectCount = count _lineIntersectsObjs;
 if(_lineIntersectsObjs isEqualTo []) then
