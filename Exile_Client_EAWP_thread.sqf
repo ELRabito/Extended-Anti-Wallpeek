@@ -26,8 +26,8 @@ _lineIntersectsObjs = flatten [
 
 	//X/Z/Y // https://community.bistudio.com/wikidata/images/e/e6/PositionCameraToWorld.jpg                                                                    
 	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.04]],		
-    lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.04]],		                                                                        
-    lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,0,0]],	
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.04]],		                                                                        
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,0,0]],	
 	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.08,0,0]]
 ];
 _IntersectCount = count _lineIntersectsObjs;
