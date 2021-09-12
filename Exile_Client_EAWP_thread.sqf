@@ -19,11 +19,11 @@ if !(isNull (uiNamespace getVariable ['RscSMPaint', displayNull])) exitwith {}; 
 //if !(isNull (uiNamespace getVariable ['RscExileVehicleTraderDialog', displayNull])) exitwith {}; 
 //if !(isNull (uiNamespace getVariable ['RscExileVehicleCustomsDialog', displayNull])) exitwith {};
 
-// CONFIG
+// ConfigSTART
 _forceFirstPerson = false; 	// Force first person after glitching
 _forceFPDuration = 60;		// Duration of the forced first person.
-//
 
+// Intersections
 //X/Z/Y // https://community.bistudio.com/wikidata/images/e/e6/PositionCameraToWorld.jpg
 _lineIntersectsObjs = flatten [
                                                                     
@@ -34,9 +34,10 @@ _lineIntersectsObjs = flatten [
 	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.08,0]]
 ];
 _IntersectCount = count _lineIntersectsObjs;
+// ConfigEND
+
 if(_lineIntersectsObjs isEqualTo []) then
 {
-	
 	if (_forceFirstPerson) then
 	{
 		if (diag_tickTime - ExileClientLastForcedFirstPerson >= _forceFPDuration) then
