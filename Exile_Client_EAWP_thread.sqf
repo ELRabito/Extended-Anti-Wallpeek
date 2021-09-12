@@ -1,6 +1,6 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.40
+* V0.41
 * by El Rabito
 *
 */
@@ -10,6 +10,7 @@ if !(isNull objectParent player) exitWith{};
 if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{};
 if !(isnull ExileClientCameraObject) exitWith{};
 if (ExilePlayerInSafezone) exitWith{};
+if !(isNull (uiNamespace getVariable ['RscExileVirtualGarageDialog', displayNull])) exitwith {}; // Virtual Garage
 if !(isNull (uiNamespace getVariable ['RscSMPaint', displayNull])) exitwith {}; // SM_Paint
 
 // !!! Uncomment below if you don't use Safezones !!! 
@@ -26,10 +27,10 @@ _forceFPDuration = 60;		// Duration of the forced first person.
 //X/Z/Y // https://community.bistudio.com/wikidata/images/e/e6/PositionCameraToWorld.jpg
 _lineIntersectsObjs = flatten [
                                                                     
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,-0.04]],		
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0,0.04]],		                                                                        
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,0,0]],	
-	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.08,0,0]],
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,-0.12,-0.06]],		
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,-0.12,0.06]],		                                                                        
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [-0.08,-0.12,0]],	
+	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0.08,-0.12,0]],
 	lineIntersectsObjs [eyePos player, AGLToASL positionCameraToWorld [0,0.08,0]]
 ];
 _IntersectCount = count _lineIntersectsObjs;
