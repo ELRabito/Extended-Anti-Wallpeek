@@ -1,12 +1,13 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.41
+* V0.42
 * by El Rabito
 *
 */
 
 private ["_lineIntersectsObjs","_IntersectCount","_type","_forceFirstPerson","_forceFPDuration"];
 if !(isNull objectParent player) exitWith{};
+if !(isNull getConnectedUAV player)exitWith{};
 if ((toLower (animationState player)) in ["ladderriflestatic", "ladderrifleuploop", "ladderrifledownloop", "laddercivilstatic", "ladderciviluploop", "laddercivildownloop"]) exitWith{};
 if !(isnull ExileClientCameraObject) exitWith{};
 if (ExilePlayerInSafezone) exitWith{};
