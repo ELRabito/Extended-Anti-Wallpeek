@@ -1,8 +1,7 @@
 /**
 * Exile_Client_EAWP_thread
 *
-* Copyright © El Rabito - All Rights Reserved
-* Unauthorized usage of this file is strictly prohibited.
+* Copyright © El Rabito
 * v0.50
 */
 if !(player call ExileClient_util_world_isInTerritory) exitWith {};
