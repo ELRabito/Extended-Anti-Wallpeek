@@ -5,7 +5,7 @@ If you try to glitch through objects with the camera it will fade the screen to 
 It will cover most of the buildings but sadly not objects like map fences since they have no "object type", but better than nothing.
 
 # Territory Only Version
-This will trigger only while inside a territory (For base owners and outsides).
+This will trigger only while inside a territory (For base owners and outsiders).
 
 # Installation
 1. Copy the Exile_Client_EAWP_thread.sqf to your missionfile and add the code from the initplayerlocal.sqf
