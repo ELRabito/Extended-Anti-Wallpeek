@@ -1,8 +1,7 @@
 /**
 * Exile_Client_EAWP_thread
-* V0.42
-* by El Rabito
-*
+* V0.42 
+* Copyright © El Rabito
 */
 
 private ["_lineIntersectsObjs","_IntersectCount","_type","_forceFirstPerson","_forceFPDuration"];
