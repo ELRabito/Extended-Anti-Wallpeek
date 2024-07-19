@@ -38,7 +38,7 @@ else
 	{
 		if(_x getVariable ['ExileBreaching',false])exitWith{};
 		private _type = typeOf _x;
-		if(((_x isKindOf 'Exile_Construction_Abstract_Static') || (_x isKindOf 'AbstractConstruction') || (_x isKindOf 'AbstractWall') || (_x isKindOf 'House')) && !(_type in ['RW_RemoteJammer_Static','Land_sz_Tent_East','Land_Panelak','Exile_Construction_ConcreteStairs_Static','RW_Stair_Retracted_Static','RW_Stair_Lowered_Static','Exile_Construction_WoodStairs_Static','Exile_Plant_GreenBush','EBM_Metalwall_stairs','EBM_Brickwall_stairs','Land_GH_Stairs_F'])) exitWith 
+		if(((_x isKindOf 'Exile_Construction_Abstract_Static') || (_x isKindOf 'AbstractConstruction') || (_x isKindOf 'AbstractWall') || (_x isKindOf 'House')) && !(_type in ['Exile_Construction_ConcreteStairs_Static','Exile_Construction_WoodStairs_Static','Exile_Plant_GreenBush','EBM_Metalwall_stairs','EBM_Brickwall_stairs','Land_GH_Stairs_F'])) exitWith 
 		{
 			if!(ExileClientGlitchBlackOut) then 
 			{
